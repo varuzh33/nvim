@@ -7,7 +7,6 @@ return {
 
 	config = function()
 		require("kanagawa").setup({
-			--сюда идут дополнительные найстройки
 			colors = {
 				palette = {
 					-- change all usages of these colors
@@ -25,20 +24,19 @@ return {
 
 ---[[
 return {
-    "ellisonleao/gruvbox.nvim",
-    name = "gruvbox",
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
+	"ellisonleao/gruvbox.nvim",
+	name = "gruvbox",
+	lazy = false, -- make sure we load this during startup if it is your main colorscheme
+	priority = 1000, -- make sure to load this before all the other start plugins
 
-    config = function()
-        require("gruvbox").setup({
-            --сюда идут дополнительные найстройки
-            contrast = "hard",      -- can be "hard", "soft" or empty string
-            terminal_colors = true, -- add neovim terminal colors
-        })
+	config = function()
+		require("gruvbox").setup({
+			contrast = "hard", -- can be "hard", "soft" or empty string
+			terminal_colors = true, -- add neovim terminal colors
+		})
 
-        vim.cmd.colorscheme("gruvbox")
-    end,
+		vim.cmd.colorscheme("gruvbox")
+	end,
 }
 --]]
 

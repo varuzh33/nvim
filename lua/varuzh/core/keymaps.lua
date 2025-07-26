@@ -12,7 +12,7 @@ vim.keymap.set("n", "N", "Nzz")
 vim.keymap.set("n", "*", "*zz")
 vim.keymap.set("n", "#", "#zz")
 
--- Moving selected visual lines
+-- Move selected visual lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -20,18 +20,13 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
--- Source nvim config file
---vim.keymap.set("n", "<leader><leader>", function()
---	vim.cmd("so")
---end)
-
 -- Diagnostics
 vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", function()
-    vim.diagnostic.goto_next()
+	vim.diagnostic.goto_next()
 end)
 vim.keymap.set("n", "]d", function()
-    vim.diagnostic.goto_prev()
+	vim.diagnostic.goto_prev()
 end)
 
 -- Quickfix list
@@ -40,28 +35,32 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
--- Horizontal scroll (cringe remaps)
-vim.keymap.set("n", "<C-1>", "35z<Left>")
-vim.keymap.set("n", "<C-2>", "35z<Right>")
-
 -- Close current split
 --vim.keymap.set("n", "<leader>ms", "<cmd>close<CR>")
 vim.keymap.set("n", "<leader>ms", function()
-    vim.cmd("close")
+	vim.cmd("close")
 end)
 
 -- Experemental keymap
 vim.keymap.set("n", "<leader>lf", function()
-    print(tostring(vim.api.nvim_get_current_line()))
+	print(tostring(vim.api.nvim_get_current_line()))
 end)
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Native spell checking
 vim.keymap.set("n", "<leader>ns", function()
-    vim.cmd("set spell")
+	vim.cmd("set spell")
 end)
 
 vim.keymap.set("n", "<leader>ne", function()
-    vim.cmd("set nospell")
+	vim.cmd("set nospell")
 end)
+
+-- For visual block mode to work properly
+vim.keymap.set("i", "<C-c>", "<Esc>")
+
+-- Source nvim config file
+--vim.keymap.set("n", "<leader><leader>", function()
+--	vim.cmd("so")
+--end)
